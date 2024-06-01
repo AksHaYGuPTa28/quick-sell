@@ -5,7 +5,8 @@ import { GET_TICKETS_URL } from './constants';
 import { loadGrid, mapUsersByUserId } from './utils';
 import { Ticket, User } from './interfaces';
 import Loader from './components/Loader';
-import './App.css'
+import { ThemeProvider } from './ThemeContext';
+import './App.css';
 
 function App() {
   const [tickets, setTickets] = useState<Ticket[]>([]);
@@ -22,14 +23,14 @@ function App() {
       setTickets(tickets);
       setUserData(mapUsersByUserId(users));
     }).catch(err => { });
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (!tickets.length)
       return;
     setGridData(loadGrid(tickets, grouping, ordering));
     setLoading(false);
-  }, [grouping, ordering, tickets])
+  }, [grouping, ordering, tickets]);
 
   const onSetGrouping = useCallback((value: string) => {
     setLoading(true);
@@ -54,12 +55,14 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header grouping={grouping} setGrouping={onSetGrouping} ordering={ordering} setOrdering={onSetOrdering} />
-      {loading ? <Loader /> :
-        <Grid gridData={gridData} grouping={grouping} userIdToData={userData} />
-      }
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Header grouping={grouping} setGrouping={onSetGrouping} ordering={ordering} setOrdering={onSetOrdering} />
+        {loading ? <Loader /> :
+          <Grid gridData={gridData} grouping={grouping} userIdToData={userData} />
+        }
+      </div>
+    </ThemeProvider>
   );
 }
 

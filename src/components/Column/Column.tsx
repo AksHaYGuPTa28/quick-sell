@@ -40,8 +40,8 @@ function Column({ tickets, grouping, groupBy, userIdToData }: { tickets: Ticket[
                     </div>
                 </div>
                 <div className='column-header-right-container'>
-                    <GrAdd color="#797d84" size={12} />
-                    <LuMoreHorizontal color="#797d84" size={14} />
+                    <GrAdd className='icon' size={12} />
+                    <LuMoreHorizontal className='icon' size={14} />
                 </div>
             </div>
             <div className='cards-container'>

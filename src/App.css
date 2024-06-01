@@ -1,3 +1,19 @@
 * {
     box-sizing: border-box;
 }
+
+
+
+:root {
+    --icon-color: #6b6f76;
+  }
+  
+  .dark {
+    --icon-color: #b3b3b3;
+  }
+
+
+
+.icon {
+    color: var(--icon-color);
+  }

@@ -30,9 +30,9 @@ const DisplayDropdown: React.FC<DisplayDropdownProps> = ({ grouping, setGrouping
   return (
     <div className='display-dropdown' ref={dropdownRef}>
       <div className='dropdown-label-container' onClick={toggleDropdown}>
-        <VscSettings color='#6b6f76' />
+        <VscSettings className='icon' />
         <div className='dropdown-label'>Display</div>
-        <BiChevronDown color='#6b6f76' />
+        <BiChevronDown className='icon' />
       </div>
       <div className={`dropdown-content-container ${isVisible ? 'visible' : ''}`}>
         <div className='dropdown-content-row'>
@@ -41,7 +41,10 @@ const DisplayDropdown: React.FC<DisplayDropdownProps> = ({ grouping, setGrouping
             name="grouping"
             id="grouping"
             value={grouping}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) => setGrouping(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              setGrouping(e.target.value);
+              toggleDropdown();
+            }}
           >
             <option value="status">Status</option>
             <option value="user">User</option>
@@ -54,7 +57,10 @@ const DisplayDropdown: React.FC<DisplayDropdownProps> = ({ grouping, setGrouping
             name="ordering"
             id="ordering"
             value={ordering}
-            onChange={(e: ChangeEvent<HTMLSelectElement>) => setOrdering(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              setOrdering(e.target.value)
+              toggleDropdown();
+            }}
           >
             <option value="priority">Priority</option>
             <option value="title">Title</option>

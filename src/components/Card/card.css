@@ -1,68 +1,94 @@
-.card {
+:root {
+    --card-background: #fff;
+    --card-shadow: rgba(18, 18, 18, 0.13);
+    --ticket-id-color: #6b6f76;
+    --title-color: #282a2f;
+    --tag-icon-background: #bec2c8;
+    --tag-text-color: #6b6f76;
+  }
+  
+  .dark {
+    --card-background: #1e1e1e;
+    --card-shadow: rgba(0, 0, 0, 0.5);
+    --ticket-id-color: #b3b3b3;
+    --title-color: #ffffff;
+    --tag-icon-background: #444;
+    --tag-text-color: #b3b3b3;
+  }
+  
+  .card {
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
-    box-shadow: 0 0 0.5rem #12121221;
-    background-color: #fff;
-}
-.card .ticket-id {
-    color: #6b6f76;
+    box-shadow: 0 0 0.5rem var(--card-shadow);
+    background-color: var(--card-background);
+  }
+  
+  .card .ticket-id {
+    color: var(--ticket-id-color);
     font-size: 0.6rem;
     font-weight: bold;
-}
-.card .title {
-    color: #282a2f;
+  }
+  
+  .card .title {
+    color: var(--title-color);
     font-size: 0.75rem;
     font-weight: 600;
-}
-.card .middle-container {
+  }
+  
+  .card .middle-container {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
     margin-top: 0.5rem;
-}
-.card .bottom-container {
+  }
+  
+  .card .bottom-container {
     gap: 0.75rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     margin-top: 0.5rem;
-}
-.card .bottom-container .more-icon-container {
-margin-top: 0.25rem;
-}
-.card .tag-container {
+  }
+  
+  .card .bottom-container .more-icon-container {
+    margin-top: 0.25rem;
+  }
+  
+  .card .tag-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-
-}
-.card .tag-icon {
-    background-color: #bec2c8;
+  }
+  
+  .card .tag-icon {
+    background-color: var(--tag-icon-background);
     border-radius: 9999px;
     height: 0.5rem;
     width: 0.5rem;
-}
-.card .tag-text {
-    color: #6b6f76;
+  }
+  
+  .card .tag-text {
+    color: var(--tag-text-color);
     font-size: 0.75rem;
     font-weight: bold;
-}
-
-.card .top-container {
+  }
+  
+  .card .top-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-}
-
-.card svg {
+  }
+  
+  .card svg {
     flex-shrink: 0;
-}
-
-@media screen and (max-width:700px) {
+  }
+  
+  @media screen and (max-width: 700px) {
     .card {
-        min-width: fit-content;
+      min-width: fit-content;
     }
-}
+  }
+  
