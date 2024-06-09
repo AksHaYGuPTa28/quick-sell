@@ -10,8 +10,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  //Fetching the local storage theme
+  const storedTheme:any = localStorage.getItem("theme")
 
+  //Initializing the theme state with local storage theme
+  const [theme, setTheme] = useState<Theme>(storedTheme);
+
+  //saving the theme chosen by user in local storage.
+  localStorage.setItem("theme",theme);
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
